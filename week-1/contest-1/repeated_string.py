@@ -13,8 +13,7 @@ def repeatedString(s, n):
     if len(s) <= 1:
         if s == 'a':
             return n
-        else:
-            return 0
+        return 0
     repeated = n // len(s)
     added = n % len(s)
     a_count += repeated * (s.count('a'))
