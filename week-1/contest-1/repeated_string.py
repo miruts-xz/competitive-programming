@@ -12,7 +12,7 @@ def repeatedString(s, n):
     a_count = 0
     repeated = n // len(s)
     added = n % len(s)
-    a_count += repeated * (s.count('a'))
+    a_count += repeated * s.count('a')
     a_count += s[:added].count('a')
     return a_count
 
