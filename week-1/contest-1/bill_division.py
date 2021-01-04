@@ -6,18 +6,20 @@ import random
 import re
 import sys
 
+
 # Complete the bonAppetit function below.
 def bonAppetit(bill, k, b):
     total_price = 0
     for i in bill:
         total_price += i
     anas_eaten_prices = total_price - bill[k]
-    share = anas_eaten_prices//2
+    share = anas_eaten_prices // 2
     if b == share:
         print("Bon Appetit")
     else:
-        change = b-share
+        change = b - share
         print(change)
+
 
 if __name__ == '__main__':
     nk = input().rstrip().split()
