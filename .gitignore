@@ -1,5 +1,6 @@
-/misc
-/lectures exercises
+misc/
+lectures exercises/
+.idea/
 .gitignore
 buffer.py
 test.txt
