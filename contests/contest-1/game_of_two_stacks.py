@@ -1,12 +1,14 @@
 #!/bin/python3
 from typing import List
 import os
+
 import sys
 
 
 #
 # Complete the twoStacks function below.
 #
+
 def twoStacks(limit: int, a: List[int], b: List[int]) -> int:
     a_index, b_index, total_sum, count = 0, 0, 0, 0
     while a_index < len(a) and total_sum + a[a_index] <= limit:
