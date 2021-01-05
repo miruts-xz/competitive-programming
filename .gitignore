@@ -4,5 +4,3 @@ lectures exercises/
 .gitignore
 buffer.py
 test.txt
-bubble.py
-longest_substring.py
