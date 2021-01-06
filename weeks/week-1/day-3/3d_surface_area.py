@@ -21,12 +21,17 @@ def surface_area(A: List[List[int]]) -> int:
                 area += cubes
             if j == width - 1:
                 area += cubes
-    for i in range(height):
-        for j in range(width - 1):
-            area += abs(A[i][j + 1] - A[i][j])
-    for j in range(width):
-        for i in range(height - 1):
-            area += abs(A[i + 1][j] - A[i][j])
+            if j < width-1:
+                area += abs(A[i][j + 1] - A[i][j])
+            if i < height-1:
+                area += abs(A[i + 1][j] - A[i][j])
+    #
+    # for i in range(height):
+    #     for j in range(width - 1):
+    #         area += abs(A[i][j + 1] - A[i][j])
+    # for j in range(width):
+    #     for i in range(height - 1):
+    #         area += abs(A[i + 1][j] - A[i][j])
     return area
 
 
