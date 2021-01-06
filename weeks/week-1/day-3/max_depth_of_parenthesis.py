@@ -8,7 +8,6 @@
 # @https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses:
 def max_depth(s: str) -> int:
     m = 0
-    stack = []
     temp_max = 0
     for c in s:
         if c == '(':
