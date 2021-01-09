@@ -4,21 +4,21 @@
 #  Please contact developer at miruts.hadush@aait.edu.et prior to
 #  copying/distributing to ask and get proper authorizations.
 
-# Class implements node of linked list
-class Node:
+# Definition for singly-linked list.
+class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
-_node1 = Node(1)
-_node2 = Node(2)
-
-_node1.next = _node2
-
-# print nodes in linked list
-if __name__ == '__main__':
-    _node = _node1
-    while _node:
-        print(_node.val)
-        _node = _node.next
+def middle_node(head: ListNode) -> ListNode:
+    count = 0
+    node = head
+    while node:
+        count += 1
+        node = node.next
+    node_number = count // 2
+    node = head
+    for i in range(node_number):
+        node = node.next
+    return node
