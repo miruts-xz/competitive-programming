@@ -11,20 +11,17 @@ def reverse_linked_list(head: Node) -> Node:
     node_list = []
     node = head
     while node:
-        node_list.append(node)
+        node_list.append(Node(node.val))
         node = node.next
-    head = None
-    for i in range(len(node_list) - 1, -1, -1):
+    local_head = None
+    for i in range(len(node_list) - 1, 0, -1):
         if i == len(node_list) - 1:
-            head = node_list[i]
-            head.next = node_list[i - 1]
-        elif i == 0:
-            node = node_list[0]
-            node.next = None
+            local_head = node_list[i]
+            local_head.next = node_list[i - 1]
         else:
             node = node_list[i]
             node.next = node_list[i - 1]
-    return head
+    return local_head
 
 
 # Create linked list
