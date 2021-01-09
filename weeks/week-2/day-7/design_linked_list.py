@@ -11,13 +11,14 @@ class Node:
         self.next = next
 
 
-node1 = Node(1)
-node2 = Node(2)
+_node1 = Node(1)
+_node2 = Node(2)
 
-node1.next = node2
+_node1.next = _node2
 
 # print nodes in linked list
-node = node1
-while node:
-    print(node.val)
-    node = node.next
+if __name__ == '__main__':
+    _node = _node1
+    while _node:
+        print(_node.val)
+        _node = _node.next
