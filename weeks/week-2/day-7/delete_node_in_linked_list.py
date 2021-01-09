@@ -4,14 +4,14 @@
 #  Please contact developer at miruts.hadush@aait.edu.et prior to
 #  copying/distributing to ask and get proper authorizations.
 
-from design_linked_list import Node
+from design_linked_list import ListNode
 
 # Code implements deletion of Node from linked list
 # create linked list
-head = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
+head = ListNode(1)
+node2 = ListNode(2)
+node3 = ListNode(3)
+node4 = ListNode(4)
 
 head.next = node2
 node2.next = node3

@@ -3,15 +3,15 @@
 #  illegal and would mount to theft.
 #  Please contact developer at miruts.hadush@aait.edu.et prior to
 #  copying/distributing to ask and get proper authorizations.
-from design_linked_list import Node
+from design_linked_list import ListNode
 
 
 # Method implements reversing linked list
-def reverse_linked_list(head: Node) -> Node:
+def reverse_linked_list(head: ListNode) -> ListNode:
     node_list = []
     node = head
     while node:
-        node_list.append(Node(node.val))
+        node_list.append(ListNode(node.val))
         node = node.next
     local_head = None
     for i in range(len(node_list) - 1, 0, -1):
@@ -25,11 +25,11 @@ def reverse_linked_list(head: Node) -> Node:
 
 
 # Create linked list
-head = Node()
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
+head = ListNode()
+node1 = ListNode(1)
+node2 = ListNode(2)
+node3 = ListNode(3)
+node4 = ListNode(4)
 
 head.next = node1
 node1.next = node2

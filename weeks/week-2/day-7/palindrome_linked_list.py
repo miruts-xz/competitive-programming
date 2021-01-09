@@ -3,6 +3,8 @@
 #  illegal and would mount to theft.
 #  Please contact developer at miruts.hadush@aait.edu.et prior to
 #  copying/distributing to ask and get proper authorizations.
+from reverse_linked_list import reverse_linked_list
+
 
 # Definition for singly-linked list.
 class ListNode:
@@ -22,7 +24,7 @@ node3.next = node4
 
 
 # Method implements palindrome linked list leetcode challenge @https://leetcode.com/problems/palindrome-linked-list
-def isPalindrome(head: ListNode) -> bool:
+def is_palindrome(head: ListNode) -> bool:
     head_low = head
     head_high = reverse_linked_list(head)
 
@@ -36,21 +38,4 @@ def isPalindrome(head: ListNode) -> bool:
     return True
 
 
-def reverse_linked_list(head: ListNode) -> ListNode:
-    node_list = []
-    node = head
-    while node:
-        node_list.append(ListNode(node.val))
-        node = node.next
-    local_head = None
-    for i in range(len(node_list) - 1, 0, -1):
-        if i == len(node_list) - 1:
-            local_head = node_list[i]
-            local_head.next = node_list[i - 1]
-        else:
-            node = node_list[i]
-            node.next = node_list[i - 1]
-    return local_head
-
-
-print(isPalindrome(head))
+print(is_palindrome(head))

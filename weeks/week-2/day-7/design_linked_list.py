@@ -5,14 +5,14 @@
 #  copying/distributing to ask and get proper authorizations.
 
 # Class implements node of linked list
-class Node:
+class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
-_node1 = Node(1)
-_node2 = Node(2)
+_node1 = ListNode(1)
+_node2 = ListNode(2)
 
 _node1.next = _node2
 
