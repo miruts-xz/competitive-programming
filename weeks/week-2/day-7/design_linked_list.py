@@ -1,24 +1,77 @@
-#  Copyright (c) 2021. This code is licensed to mire
-#  Copying and / or distributing without appropriate permission from author is
-#  illegal and would mount to theft.
-#  Please contact developer at miruts.hadush@aait.edu.et prior to
-#  copying/distributing to ask and get proper authorizations.
-
-# Class implements node of linked list
-class ListNode:
-    def __init__(self, val=0, next=None):
+class Node:
+    def __init__(self, val=int, next=None):
         self.val = val
         self.next = next
 
 
-_node1 = ListNode(1)
-_node2 = ListNode(2)
+class MyLinkedList:
 
-_node1.next = _node2
+    def __init__(self):
+        self.head = None
+        self.tail = None
 
-# print nodes in linked list
-if __name__ == '__main__':
-    _node = _node1
-    while _node:
-        print(_node.val)
-        _node = _node.next
+    def get(self, index: int) -> int:
+        count = self.count()
+        if index > count - 1:
+            return -1
+        node = self.head
+        for i in range(index):
+            node = node.next
+        return node.val
+
+    def count(self):
+        count = 0
+        head = self.head
+        while head:
+            count += 1
+            head = head.next
+        return count
+
+    def addAtHead(self, val: int) -> None:
+        self.head = Node(val, self.head)
+
+    def addAtTail(self, val: int) -> None:
+        node = self.head
+        if node is None:
+            self.head = Node(val)
+            return
+        while node.next:
+            node = node.next
+        node.next = Node(val)
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        node = self.head
+        i = 0
+        if node is None:
+            self.head = Node(val)
+            return
+        if index == 0:
+            return self.addAtHead(val)
+        elif index == self.count():
+            return self.addAtTail(val)
+        for i in range(index - 1):
+            node = node.next
+        node.next = Node(val, node.next)
+
+    def deleteAtIndex(self, index: int) -> None:
+        node = self.head
+        if node is None:
+            return
+        elif index >= self.count():
+            return
+        elif index == 0:
+            self.head = self.head.next
+            return
+        for i in range(index - 1):
+            node = node.next
+        new_node = node.next
+        if new_node.next is None:
+            node.next = None
+        else:
+            node.next = new_node.next
+
+
+ll = MyLinkedList()
+
+ll.addAtHead(1)
+print(ll.get(0))
