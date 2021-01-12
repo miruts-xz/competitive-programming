@@ -6,9 +6,20 @@
 from typing import List
 
 
+# Method implements daily temperature leetcode challenge @https://leetcode.com/problems/daily-temperatures
 def daily_temperature(T: List[int]) -> List[int]:
-    result = []
-
+    stack = []
+    result = [0] * len(T)
+    for i in range(len(T)):
+        if len(stack) == 0:
+            stack.append(i)
+        else:
+            while len(stack) > 0 and T[stack[len(stack) - 1]] < T[i]:
+                idx = stack.pop()
+                result[idx] = i - idx
+            stack.append(i)
+    while len(stack) > 0:
+        result[stack.pop()] = 0
     return result
 
 

@@ -1,10 +1,10 @@
 class Node:
-    def __init__(self, val=int, next=None):
+    def __init__(self, val: int = 0, next=None):
         self.val = val
         self.next = next
 
 
-class MyLinkedList:
+class LinkedList:
 
     def __init__(self):
         self.head = None
@@ -41,7 +41,6 @@ class MyLinkedList:
 
     def addAtIndex(self, index: int, val: int) -> None:
         node = self.head
-        i = 0
         if node is None:
             self.head = Node(val)
             return
@@ -71,7 +70,8 @@ class MyLinkedList:
             node.next = new_node.next
 
 
-ll = MyLinkedList()
+if __name__ == '__main__':
+    ll = LinkedList()
 
-ll.addAtHead(1)
-print(ll.get(0))
+    ll.addAtHead(1)
+    print(ll.get(0))

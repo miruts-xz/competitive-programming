@@ -5,24 +5,27 @@
 #  copying/distributing to ask and get proper authorizations.
 
 # Implements Stack using two Queues (List with only Queue operations)
+from design_linked_list import LinkedList as Queue
+
+
 class MyStack:
-    def __init(self):
-        self.stack = []
+    def __init__(self):
+        self.stack = Queue()
 
     def push(self, x: int) -> None:
-        self.stack.append(x)
+        self.stack.addAtTail(x)
 
     def pop(self) -> int:
-        temp = []
+        temp = Queue()
         while not self.empty():
-            val = self.stack[0]
-            temp.append(val)
-            self.stack.remove(val)
-        elem = temp.pop()
-        while len(temp) > 0:
-            val = temp[0]
+            val = self.stack.get(0)
+            temp.addAtTail(val)
+            self.stack.deleteAtIndex(0)
+        elem = temp.get(temp.count()-1)
+        while temp.count() > 1:
+            val = temp.get(0)
             self.push(val)
-            temp.remove(val)
+            temp.deleteAtIndex(0)
         return elem
 
     def top(self) -> int:
@@ -31,4 +34,14 @@ class MyStack:
         return elem
 
     def empty(self) -> bool:
-        return len(self.stack) == 0
+        return self.stack.count() == 0
+
+
+s = MyStack()
+s.push(1)
+s.push(2)
+s.push(3)
+s.push(0)
+print(s.pop())
+print(s.pop())
+print(s.top())
