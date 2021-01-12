@@ -14,7 +14,12 @@ class MyQueue:
         """
         Push element x to the back of queue.
         """
-        self.queue.insert(0, x)
+        temp = []
+        while len(self.queue) > 0:
+            temp.append(self.queue.pop())
+        self.queue.append(x)
+        while len(temp) > 0:
+            self.queue.append(temp.pop())
 
     def pop(self) -> int:
         """
@@ -26,7 +31,9 @@ class MyQueue:
         """
         Get the front element.
         """
-        return self.queue[len(self.queue) - 1]
+        elem = self.queue.pop()
+        self.queue.append(elem)
+        return elem
 
     def empty(self) -> bool:
         """
