@@ -1,9 +1,3 @@
-#  Copyright (c) 2021. This code is licensed to mire
-#  Copying and / or distributing without appropriate permission from author is
-#  illegal and would mount to theft.
-#  Please contact developer at miruts.hadush@aait.edu.et prior to
-#  copying/distributing to ask and get proper authorizations.
-
 class Node:
     def __init__(self, value: int = 0, prev=None, next=None):
         self.value = value
@@ -12,7 +6,6 @@ class Node:
 
 
 class MyCircularDeque:
-
     def __init__(self, k: int):
         self.k = k
         self.count = 0
