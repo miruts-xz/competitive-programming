@@ -1,27 +1,19 @@
-#  Copyright (c) 2021. This code is licensed to mire
-#  Copying and / or distributing without appropriate permission from author is
-#  illegal and would mount to theft.
-#  Please contact developer at miruts.hadush@aait.edu.et prior to
-#  copying/distributing to ask and get proper authorizations.
-
 class MinStack:
-
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.stack = []
+        self.s = []
 
     def push(self, x: int) -> None:
-        self.stack.append(x)
+        if self.s:
+            prev_min = self.s[-1][1]
+            self.s.append((x, min(x, prev_min)))
+            return
+        self.s.append((x, x))
 
     def pop(self) -> None:
-        self.stack.pop()
+        self.s.pop()
 
     def top(self) -> int:
-        val = self.stack.pop()
-        self.push(val)
-        return val
+        return self.s[-1][0]
 
     def getMin(self) -> int:
-        return min(self.stack)
+        return self.s[-1][1]
