@@ -8,12 +8,3 @@ def findMergeNode(head1, head2):
             h2_ptr = h2_ptr.next
         h2_ptr = head2
         h1_ptr = h1_ptr.next
-    h2_ptr = head2
-    h1_ptr = head1
-    while h2_ptr:
-        while h1_ptr:
-            if hash(h1_ptr) == hash(h2_ptr):
-                return h1_ptr.data
-            h1_ptr = h1_ptr.next
-        h1_ptr = head1
-        h2_ptr = h2_ptr.next
