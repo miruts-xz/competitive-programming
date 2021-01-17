@@ -1,4 +1,3 @@
-
 def findMergeNode(head1, head2):
     h1_ptr = head1
     st = set()
@@ -11,4 +10,3 @@ def findMergeNode(head1, head2):
         if l1 == l2:
             return head2.data
         head2 = head2.next
-
