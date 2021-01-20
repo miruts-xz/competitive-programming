@@ -15,6 +15,5 @@ class Solution:
                 nxt = node.next.next
                 node.next = nxt
                 continue
-            else:
-                node = node.next
+            node = node.next
         return head
