@@ -6,11 +6,10 @@ def radix_sort(nums: List[int]) -> List[int]:
     mx = len(str(max(nums)))
     for i in range(1, mx + 1):
         nums = sorted(nums, key=cmp_to_key(predicate_to_compare(i)))
-        print('step {}'.format(i), nums)
     return nums
 
 
-# Method generates compare functions based on radix
+# Method generates compare function based on radix
 def predicate_to_compare(r):
     def compare(x, y):
         if x % (10 ** r) > y % (10 ** r):
