@@ -10,11 +10,12 @@ def radix_sort(nums: List[int]) -> List[int]:
     return nums
 
 
-def predicate_to_compare(num):
+# Method generates compare functions based on radix
+def predicate_to_compare(r):
     def compare(x, y):
-        if x % (10 ** num) > y % (10 ** num):
+        if x % (10 ** r) > y % (10 ** r):
             return 1
-        elif x % (10 ** num) < y % (10 ** num):
+        elif x % (10 ** r) < y % (10 ** r):
             return -1
         return 0
 
