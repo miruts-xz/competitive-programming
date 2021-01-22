@@ -21,10 +21,8 @@ def partition(arr):
     print(' '.join(map(str, result)))
     return left + equal + right
 
+
 if __name__ == '__main__':
     n = int(input())
-
-    arr = list(map(int, input().rstrip().split()))
-
-    partition(arr)
-
+    input_arr = list(map(int, input().rstrip().split()))
+    partition(input_arr)

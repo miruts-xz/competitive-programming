@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+
 # Complete the quickSort function below.
 def quickSort(arr):
     p = arr[0]
@@ -20,6 +21,8 @@ def quickSort(arr):
         else:
             equal.append(a)
     return left + equal + right
+
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
