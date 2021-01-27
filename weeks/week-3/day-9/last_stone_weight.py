@@ -1,4 +1,5 @@
 import heapq
+from typing import List
 
 
 class Solution:
@@ -9,6 +10,6 @@ class Solution:
         while len(stones) > 1:
             y = -heapq.heappop(stones)
             x = -heapq.heappop(stones)
-            if x != y:s
+            if x != y:
                 heapq.heappush(stones, x - y)
         return -stones[0] if stones else 0
