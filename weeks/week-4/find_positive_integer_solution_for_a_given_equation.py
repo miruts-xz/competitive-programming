@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
+    def findSolution(self, customfunction, z: int) -> List[List[int]]:
         r, mn, mx, x, y = [], 1001, 0, 1, 1000
         while x <= 1000 and y >= 1:
             ans = customfunction.f(x, y)
