@@ -13,7 +13,8 @@ def longest_substring(s: str) -> int:
             longest = len(subs)
     return longest
 
-# longest_substring('ababaababa')
+
+print(longest_substring('ababaababa'))
 # def longest_substr(s: str) -> int:
 #     low_index, high_index = 0, 0
 #     subs = []

@@ -13,7 +13,7 @@ class Solution:
         min_weight = mx
         while l <= r:
             mid = l + (r - l) // 2
-            d = self.getDays(running_sum, mid, D)
+            d = self.getDays(running_sum, mid)
             print(mid, d)
             if d <= D:
                 min_weight = min(min_weight, mid)
@@ -22,7 +22,7 @@ class Solution:
                 l = mid + 1
         return min_weight
 
-    def getDays(self, running: List[int], weight, D) -> int:
+    def getDays(self, running: List[int], weight) -> int:
         i = 0
         temp = weight
         curr = 0
