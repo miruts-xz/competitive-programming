@@ -24,7 +24,3 @@ class Solution:
                     visited.add((i, j))
             minutes = max(minutes, m)
         return -1 if len(fresh) else minutes
-
-
-
-
