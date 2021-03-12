@@ -1,3 +1,7 @@
+from typing import List
+from collections import deque
+
+
 class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
         q = deque()
