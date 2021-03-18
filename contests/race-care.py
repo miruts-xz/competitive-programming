@@ -1,6 +1,5 @@
 class Solution:
     def racecar(self, target: int) -> int:
-        memo = {}
         q = deque()
         v = set()
         q.append((1, 2, 1))
