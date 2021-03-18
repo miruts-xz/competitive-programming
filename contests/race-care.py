@@ -10,7 +10,7 @@ class Solution:
             p, s, l = q.popleft()
             if p == target:
                 return l
-            if p < 0 or p > target + 2**log(10000):
+            if p < 0 or p > 2*target:
                 continue
             if (p+s, s*2) not in v:
                 v.add((p+s, s*2))
