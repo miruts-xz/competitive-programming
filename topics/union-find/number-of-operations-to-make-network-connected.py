@@ -1,0 +1,41 @@
+class UnionFind:
+    def __init__(self, size: int = 26):
+        self.size = self.numComponents = size
+        self.id = [i for i in range(size)]
+        self.sz = [1 for i in range(size)]
+    def connected(self, a: int, b: int):
+        return self.find(a) == self.find(b)
+    def find(self, a: int)-> int:
+        root = a
+        while self.id[root] != root:
+            root = self.id[root]
+        return root
+    def unify(self, a: int, b: int):
+        root1 = self.find(a)
+        root2 = self.find(b)
+        if root1 == root2: return
+        if self.sz[root1] < self.sz[root2]:
+            self.sz[root2] += self.sz[root1]
+            self.id[root1] = root2
+        else:
+            self.sz[root1] += self.sz[root2]
+            self.id[root2] = root1
+            
+class Solution:
+    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+        un = UnionFind(n)
+        cables = 0
+        for s, d in connections:
+            if un.find(s) != un.find(d):
+                un.unify(s, d)
+            else:
+                cables += 1
+        counts = 0
+        for i in range(1,n):
+            if un.find(0) != un.find(i):
+                if not cables:
+                    return -1
+                un.unify(0, i)
+                counts += 1
+                cables -= 1
+        return counts
