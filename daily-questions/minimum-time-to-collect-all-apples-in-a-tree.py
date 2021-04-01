@@ -11,9 +11,7 @@ class Solution:
             adj_list[e[1]].append(e[0])
         print(adj_list)
         result = self.dfs(adj_list, set(), hasApple, 0)
-        if result > 0:
-            result -= 2
-        return result
+        return result-2 if result else 0
 
     def dfs(self, matrix: List[List[int]], visited: set, hasApple: List[bool], r):
         if r in visited:
