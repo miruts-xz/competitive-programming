@@ -8,8 +8,7 @@ class MedianFinder:
         """
         initialize your data structure here.
         """
-        self.above_md = []
-        self.below_md = []
+        self.below_md, self.above_md = [], []
         self.prev_median = None
 
     def addNum(self, num: int) -> None:
