@@ -20,7 +20,6 @@ class Solution:
                 res = getCount(i + 1, oned) + 1
             memo[(i, oned)] = res
             return res
-
         return getCount(0)
 
 
