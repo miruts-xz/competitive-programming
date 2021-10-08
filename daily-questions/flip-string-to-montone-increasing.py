@@ -3,7 +3,6 @@
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
         memo = {}
-
         def getCount(i, oned=False) -> int:
             nonlocal memo, s
             res = 0
