@@ -10,33 +10,28 @@ from typing import List
 
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        occupied = set()
-        def parallel(p1,p2, x, y)->bool:
-            # print(p1,p2,x,y)
-            slope = (y-p2)/(x-p1)
-            print(slope)
-            return slope != 1.0 and slope != -1.0
+        board = [['.' for _ in range(n)] for _ in range(n)]
         ans = []
-        def valid(i,j):
-            return 0<=i<n and 0<=j<n
-        def can_place(i,j):
-            return all([i != r and j != c and not parallel(i,j,r,c) for r,c in occupied])
-        def _solveNQueens(j,m)->bool:
-            if j == n:
-                return False
-            if m == 0:
-                ans.append(list(occupied))
-                return True
-            for i in range(n):
-                if can_place(i,j):
-                    occupied.add((i,j))
-                    _solveNQueens(j+1,m-1)
-                    occupied.remove((i,j))
-        for j in range(n):
-            occupied.add((0,j))
-            _solveNQueens(j,n-1)
-            occupied.remove((0,j))
-        print(ans)               
-        
+        def can_place(row, col):
+            for c in range(col):
+                if board[row][c] == "Q":
+                    return False
+            for r, c in zip(range(row, -1, -1), range(col, -1, -1)):
+                if board[r][c] == "Q":
+                    return False
+            for r, c in zip(range(row, n), range(col, -1, -1)):
+                if board[r][c] == "Q":
+                    return False
+            return True
+        def _solveQueens(col):
+            if col >= n:
+                ans.append([''.join(l) for l in board])
+            for row in range(n):
+                if can_place(row, col):
+                    board[row][col] = 'Q'
+                    _solveQueens(col+1)
+                    board[row][col] = '.'
+        _solveQueens(0)
+        return ans
 # @lc code=end
 
