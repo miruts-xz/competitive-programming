@@ -2,10 +2,10 @@
 # @lc app=leetcode id=1004 lang=python3
 #
 # [1004] Max Consecutive Ones III
-#
-
+# 
 # @lc code=start
 from typing import List
+
 
 
 class Solution:
