@@ -1,3 +1,7 @@
 {
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/mire/Downloads/jar_files/javatuples-1.2.jar"
+    ]
 }
