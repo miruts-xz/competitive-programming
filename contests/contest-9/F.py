@@ -1,3 +1,5 @@
+from itertools import permutations
+print(permutations('23',2))
 def solve(bosses):
     n = len(bosses)
     count = bosses[0]
