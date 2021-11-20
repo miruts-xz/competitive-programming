@@ -1,41 +1,39 @@
 from collections import defaultdict
-from functools import lru_cache
-from math import inf
-def solve(n,m,k,adj):
-    ans = [[inf]*m for _ in range(n)]
-    start = (0, 0)
-    dp = {}
-    def dfs(i,j,left)->int:
-        nonlocal adj, start
-        if (i,j) == start and left == 0:
-            return 0
-        if left <= 0: return inf
-        if (i,j,left) not in dp:
-            mn = inf
-            for ni, nj, wt in adj[i,j]:
-                mn = min(wt+dfs(ni,nj,left-1),mn)
-            dp[i,j,left] = mn
-        return dp[i,j,left]
-    for i in range(n):
-        for j in range(m):
-            mn = inf
-            start = (i,j)
-            dp.clear()
-            for ni, nj, wt in adj[i,j]:
-                mn = min(wt+dfs(ni,nj,k-1),mn)
-            ans[i][j] = mn if mn != inf else -1
-    return ans
+from functools import lru_cache, reduce
+def solve(words):
+    word1, word2 = None, None
+    commons = defaultdict(list)
+    @lru_cache(maxsize=None)
+    def dfs(i, j, chosei, chosej):
+        nonlocal word1, word2
+        if i == len(word1) or j == len(word2):
+            return ['']
+        if word2[j] == word1[i]:
+            return [word1[i] + after for after in dfs(i+1, j+1, chosei, chosej)]
+        ip = dfs(i+1, j, chosei, chosej)
+        jp = dfs(i, j+1, chosei, chosej)
+        ijp = dfs(i+1, j+1, chosei, chosej)
+        commons[chosei, chosej].extend(ip)
+        commons[chosei, chosej].extend(jp)
+        commons[chosei, chosej].extend(ijp)
+        ip.extend(jp)
+        return ip
+    for i in range(len(words)-1):
+        word1, word2 = words[i], words[i+1]
+        commons[i, i+1].extend(dfs(0,0, i, i+1))
+    # print(commons[0,1])
+    all = set(commons[0,1])
+    all = all.intersection(*map(set, commons.values()))
+    longest = reduce(lambda c, x: x if len(x) > len(c) else c, all, '')
+    return [len(longest), longest]
+    
 if __name__ == '__main__':
-    n, m , k = map(int, input().split())
-    adj = defaultdict(list)
-    for i in range(n):
-        for j, weight in enumerate(list(map(int, input().split()))):
-            adj[i,j].append([i,j+1,weight])
-            adj[i,j+1].append([i,j,weight])
-    for i in range(n-1):
-        for j, weight in enumerate(list(map(int, input().split()))):
-            adj[i, j].append([i+1, j, weight])
-            adj[i+1,j].append([i,j,weight])
-    ans = solve(n,m,k,adj)
-    for i in range(n):
-        print(*[ans[i][j] for j in range(m)])
+    ans = []
+    for _ in range(int(input())):
+        n = int(input())
+        words = []
+        for _ in range(n):
+            words.append(input())
+        ans.append(solve(words))
+    for a in ans:
+        print(*a, sep='\n')

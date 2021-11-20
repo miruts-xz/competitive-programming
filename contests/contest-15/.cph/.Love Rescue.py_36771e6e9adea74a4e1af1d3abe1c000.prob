@@ -1,0 +1,1 @@
+{"name":"Local: Love Rescue","url":"/home/mire/competitive-programming/contests/contest-15/Love Rescue.py","tests":[{"id":1637226598079,"input":"3\nabb\ndad","output":"2\na d\nb a"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/mire/competitive-programming/contests/contest-15/Love Rescue.py","group":"local","local":true}

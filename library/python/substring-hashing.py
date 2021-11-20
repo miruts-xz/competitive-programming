@@ -23,6 +23,10 @@ def substring_hash(l: int, r: int)->int:
     result = (result*inv[l])%MOD
     return result
 if __name__ == "__main__":
-    init('miruts')
-    print(substring_hash(2, 5))
+    orig = "aaacecaaacecaaa"
+    rev = "aaacecaaacecaaa"
+    init(orig)
+    print(substring_hash(7, 14))
+    init(rev)
+    print(substring_hash(7, 14))
 
